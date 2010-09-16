@@ -4,14 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Comments: <%= controller.action_name %></title>
+  <title>Friends: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-
-<p style="color: green"><%= notice %></p>
-
-<%= yield %>
-
+	<div id="navBar">
+		<%= render :partial => "layouts/navbar" %>
+	</div>	
+	<div id="mainLayout">
+		<div id="loginLogout">
+			<!-- Login Panel Would Go Here -->
+		</div>		
+		<p id="flash"><%= flash[:notice] %></p>
+		<%= yield %>
+	</div>
 </body>
 </html>
