@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
+  map.instant "instant", :controller => "instant", :action => "index"
   map.resources :posts, :has_many => [:comments]
 
   # The priority is based upon order of creation: first created -> highest priority.

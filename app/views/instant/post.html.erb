@@ -1,0 +1,10 @@
+<h2>Results for "<%= @text %>"</h2>
+<ul>
+	<% if !@posts.blank? %>
+	  <% for post in @posts %>
+	    <li><b><%= post.title %></b>: <%= post.body %></li>
+	  <% end %>
+	<% else %>
+	  <p>Nothing Found</p>
+	<% end %>
+</ul>

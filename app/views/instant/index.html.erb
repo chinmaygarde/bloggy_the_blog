@@ -1,0 +1,28 @@
+<div id="input">
+	<input type="text" hint="Instant" id="instant" onkeyup="search_instant()">
+	<script type="text/javascript" charset="utf-8">
+		function search_instant() {
+			var searchbox = document.getElementById("instant");
+			var results = document.getElementById("results");
+			if (searchbox.value.length < 3) {
+				results.innerHTML = "<p>Type in at least 3 letters</p>";
+			}
+			else
+			{
+				results.innerHTML = "<p>Please wait. Looking up: " + searchbox.value + "</p>";
+
+				var url = "/instant/post?q=" + searchbox.value;
+
+				new Ajax.Request(url, {
+				  method: 'get',
+				  onSuccess: function(transport) {
+				    results.innerHTML = transport.responseText;
+				  }
+				});	
+			};
+		}
+	</script>	
+</div>
+<div id="results">
+	
+</div>
