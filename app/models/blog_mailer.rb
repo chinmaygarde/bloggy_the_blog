@@ -8,19 +8,19 @@ class BlogMailer < ActionMailer::Base
     reply_to    "osprey@buzzyand.me"
   end
   
-  def reminder_message
+  def check_for_spam_message(post)
     recipients  "chinmaygarde@gmail.com"
-    subject     "Don't forget to write a blog post"
-    body        
+    subject     "Check for spam messages on #{post.title}"
+    body        :post => post
     sent_on     Time.now
     content_type "text/html"
     reply_to    "osprey@buzzyand.me"
   end
   
-  def check_for_spam_message(post)
+  def reminder_message
     recipients  "chinmaygarde@gmail.com"
-    subject     "Check for spam messages on #{post.title}"
-    body        :post => post
+    subject     "Don't forget to write a blog post"
+    body        
     sent_on     Time.now
     content_type "text/html"
     reply_to    "osprey@buzzyand.me"
